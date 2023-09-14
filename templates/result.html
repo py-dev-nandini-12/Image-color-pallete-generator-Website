@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Color Palette Generator - Results</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+
+
+</head>
+<body>
+    <h1>Top 10 Colors</h1>
+    <h3>Uploaded Image:</h3>
+    <img src="{{ image_path }}" alt="Uploaded Image" width="400">
+    <h3>Top Colors:</h3>
+    <table>
+        <tr>
+            <th>Color</th>
+            <th>Color Code</th>
+            <th>Percentage</th>
+        </tr>
+        {% for color_code, percentage in data %}
+        <tr>
+            <td style="background-color: {{ color_code }}; width: 30px; height: 30px;"></td>
+            <td>{{ color_code }}</td> <td>{{ percentage }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
